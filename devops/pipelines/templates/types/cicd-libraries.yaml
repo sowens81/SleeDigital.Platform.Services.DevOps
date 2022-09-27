@@ -1,0 +1,11 @@
+parameters:
+    - name: settings
+      type: object
+    - name: environments
+      type: object
+
+stages:
+    - stage: build
+
+    - ${{ each environment in parameters.environments }}:
+        - stage: publish ${{ environment }}

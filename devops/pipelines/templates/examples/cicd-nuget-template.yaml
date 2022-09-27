@@ -1,0 +1,27 @@
+resources:
+  repositories:
+  
+
+trigger:
+  branches:
+    include:
+    - Main
+    - feature/*
+
+pr:
+  branches:
+    include:
+    - Main
+
+extends:
+  template: devops/templates/types/cicd-libraries.yaml
+  parameters:
+    settings:
+      solutionType:  
+      solutionName:  ${{ variables.SolutionName }}
+      developmentFrameworkVersion: ${{ variables.developmentFrameworkVersion }}
+      agentPool: ${{ variables.agentPool}}
+    environments:
+      - publish  
+
+
