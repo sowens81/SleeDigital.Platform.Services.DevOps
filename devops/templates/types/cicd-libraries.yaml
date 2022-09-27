@@ -5,7 +5,7 @@ parameters:
 stages:
     - stage: build
       jobs:
-      - template: /devops/pipelines/templates/stages/build-packages.yaml
+      - template: /devops/templates/stages/build-packages.yaml
         parameters:
           agentPool: ${{ parameters.settings.agentPool }}
           solutionType: ${{ parameters.settings.solutionType }}
