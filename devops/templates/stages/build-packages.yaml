@@ -15,7 +15,7 @@ parameters:
 
 jobs:
     # ${{ if eq(parameters.solutionType, "dotnet") }}
-    - job: Build-DotNet-Package-Job
+    - job: Build_DotNet_Package_Job
       displayName: Build .Net Package
       pool:
         vmImage: ${{ variables.agentPool}}
