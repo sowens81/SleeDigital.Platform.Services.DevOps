@@ -18,6 +18,6 @@ extends:
       agentPool: 'ubuntu-latest'
       solutionType:  dotnet #
       solutionName:  Example.Solution #
-      solutionDirectory: /src/sharedlibraries/nuget/Example.Solution #
+      solutionDirectory: src/sharedlibraries/nuget/Example.Solution #
       developmentFrameworkVersion: 6.0.x #
       buildConfiguration: Release
