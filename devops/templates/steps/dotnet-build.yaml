@@ -30,5 +30,4 @@ steps:
   inputs:
     command: 'test'
     projects: " $(System.DefaultWorkingDirectory)/${{ solutionDirectory }}/${{ parameters.solutionName }}/${{ parameters.solutionName }}.Tests.csproj"
-    projects: "**/${{ parameters.solutionName }}.Tests.csproj"
     testRunTitle: 'Unit Tests'
