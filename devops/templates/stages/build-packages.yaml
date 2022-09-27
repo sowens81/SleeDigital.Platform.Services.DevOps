@@ -19,11 +19,11 @@ jobs:
         vmImage: ${{ variables.agentPool}}
       steps:
 
-      - template: /devops/templates/steps/dotnet-framework.yaml
+      - template: ../steps/dotnet-framework.yaml
         parameters: 
           developmentFrameworkVersion: ${{ parameters.developmentFrameworkVersion }}
       
-      - template: /devops/templates/steps/dotnet-build.yaml
+      - template: ../steps/dotnet-build.yaml
         parameters: 
           solutionName: ${{ parameters.solutionName }}
           solutionDirectory: ${{ parameters.solutionDirectory }}
