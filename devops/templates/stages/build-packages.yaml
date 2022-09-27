@@ -29,6 +29,6 @@ jobs:
         parameters: 
           solutionName: ${{ parameters.solutionName }}
           solutionDirectory: ${{ parameters.solutionDirectory }}
-          buildConfiguration: ${{ parameters.uildConfiguration }}
+          buildConfiguration: ${{ parameters.buildConfiguration }}
           
 
