@@ -17,8 +17,9 @@ jobs:
     # ${{ if eq(parameters.solutionType, "dotnet") }}
     - job: Build_DotNet_Package_Job
       displayName: Build .Net Package
-      pool:
-        vmImage: ${{ variables.agentPool}}
+      ${{ if eq(parameters.agentPool, 'null')}}:
+        pool:
+          vmImage: ${{ parameters.agentPool }}
       steps:
 
       - template: ../steps/dotnet-framework.yaml
