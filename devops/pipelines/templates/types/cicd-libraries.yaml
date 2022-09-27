@@ -1,11 +1,15 @@
 parameters:
     - name: settings
       type: object
-    - name: environments
-      type: object
 
 stages:
     - stage: build
-
-    - ${{ each environment in parameters.environments }}:
-        - stage: publish ${{ environment }}
+      jobs:
+      - template: /devops/pipelines/templates/stages/build-packages.yaml
+        parameters:
+          agentPool: ${{ parameters.settings.agentPool }}
+          solutionType: ${{ parameters.settings.solutionType }}
+          solutionName: ${{ parameters.settings.solutionName }}
+          solutionDirectory: ${{ parameters.settings.solutionDirectory }}
+          developmentFrameworkVersion: ${{ parameters.settings.developmentFrameworkVersion }}
+          buildConfiguration: ${{ parameters.settings.buildConfiguration }}

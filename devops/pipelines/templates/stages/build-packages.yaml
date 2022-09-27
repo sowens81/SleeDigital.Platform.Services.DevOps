@@ -1,0 +1,32 @@
+parameters:
+    - name: solutionType
+      type: string
+    - name: solutionName
+      type: string
+    - name: solutionDirectory
+      type: string
+    - name: developmentFrameworkVersion
+      type: string
+    - name: agentPool
+      type: string
+
+
+jobs:
+    ${{ if eq(parameters.solutionType, "dotnet") }}
+    - job: Build-DotNet-Package-Job
+      displayName: Build .Net Package
+      pool:
+        vmImage: ${{ variables.agentPool}}
+      steps:
+
+      - template: /devops/pipelines/templates/steps/dotnet-framework.yaml
+        parameters: 
+          developmentFrameworkVersion: ${{ parameters.developmentFrameworkVersion }}
+      
+      - template: /devops/pipelines/templates/steps/dotnet-build.yaml
+        parameters: 
+          solutionName: ${{ parameters.solutionName }}
+          solutionDirectory: ${{ parameters.solutionDirectory }}
+          buildConfiguration: ${{ parameters.uildConfiguration }}
+          
+

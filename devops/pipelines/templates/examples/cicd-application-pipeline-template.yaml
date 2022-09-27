@@ -1,7 +1,3 @@
-resources:
-  repositories:
-  
-
 trigger:
   branches:
     include:
@@ -17,11 +13,12 @@ extends:
   template: devops/templates/types/cicd-libraries.yaml
   parameters:
     settings:
-      solutionType:  
-      solutionName:  ${{ variables.SolutionName }}
-      developmentFrameworkVersion: ${{ variables.developmentFrameworkVersion }}
+      solutionType:  dotnet #
+      solutionName:  Example.Solution #
+      developmentFrameworkVersion: 6.0.x #
       agentPool: ${{ variables.agentPool}}
     environments:
-      - publish  
+      - dev
+      - production 
 
 

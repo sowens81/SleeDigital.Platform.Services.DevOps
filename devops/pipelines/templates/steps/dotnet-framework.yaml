@@ -1,0 +1,10 @@
+parameters:
+    - name: developmentFrameworkVersion
+      type: string
+
+steps:
+
+- task: UseDotNet@2
+  displayName: Install .Net Framework ${{ variables.developmentFrameworkVersion }}
+  inputs:
+      version: ${{ variables.developmentFrameworkVersion }}
