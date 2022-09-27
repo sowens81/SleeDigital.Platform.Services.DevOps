@@ -7,6 +7,8 @@ parameters:
       type: string
     - name: developmentFrameworkVersion
       type: string
+    - name: buildConfiguration
+      type: string
     - name: agentPool
       type: string
 
