@@ -12,7 +12,7 @@ steps:
   displayName: Restore .Net Project
   inputs:
     command: 'restore'
-    projects: ${{ parameters.solutionDirectory }}/**/*.csproj
+    projects: "**/*.csproj"
     feedsToUse: 'select'
     includeNuGetOrg: true
     
@@ -22,12 +22,12 @@ steps:
   displayName: Build .Net Project
   inputs:
     command: 'build'
-    projects: "${{ parameters.solutionDirectory }}/**/*.csproj"
+    projects: "**/*.csproj"
     arguments: "--configuration ${{ parameters.buildConfiguration }}"
 
 - task: DotNetCoreCLI@2
   displayName: UnitTest .Net Project
   inputs:
     command: 'test'
-    projects: "${{ parameters.solutionDirectory }}/${{ parameters.solutionName }}.Tests/${{ parameters.solutionName }}.Tests.csproj"
+    projects: "**/${{ parameters.solutionName }}.Tests.csproj"
     testRunTitle: 'Unit Tests'
