@@ -12,7 +12,7 @@ parameters:
 
 
 jobs:
-    ${{ if eq(parameters.solutionType, "dotnet") }}
+    # ${{ if eq(parameters.solutionType, "dotnet") }}
     - job: Build-DotNet-Package-Job
       displayName: Build .Net Package
       pool:
