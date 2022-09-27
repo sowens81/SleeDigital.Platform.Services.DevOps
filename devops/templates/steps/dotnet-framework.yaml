@@ -8,3 +8,4 @@ steps:
   displayName: Install .Net Framework ${{ variables.developmentFrameworkVersion }}
   inputs:
       version: ${{ variables.developmentFrameworkVersion }}
+      performMultiLevelLookup: true
