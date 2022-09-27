@@ -10,7 +10,7 @@ pr:
     - Main
 
 extends:
-  template: devops/templates/types/cicd-libraries.yaml
+  template: ../types/cicd-libraries.yaml
   parameters:
     settings:
       agentPool: ubuntu-latest
