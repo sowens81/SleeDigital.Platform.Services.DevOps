@@ -8,8 +8,6 @@ parameters:
       type: string
     - name: solutionDirectory
       type: string
-    - name: projectNames
-      type: list
     - name: developmentFrameworkVersion
       type: string
     - name: buildConfiguration
@@ -34,7 +32,6 @@ jobs:
         parameters: 
           solutionName: ${{ parameters.solutionName }}
           solutionDirectory: ${{ parameters.solutionDirectory }}
-          projectNames: ${{ parameters.projectNames }}
           buildConfiguration: ${{ parameters.buildConfiguration }}
 
     # ${{ if eq(parameters.solutionType, "nodejs") }}
