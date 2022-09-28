@@ -9,7 +9,7 @@ parameters:
     - name: solutionDirectory
       type: string
     - name: projectNames
-      type: object
+      type: list
     - name: developmentFrameworkVersion
       type: string
     - name: buildConfiguration
