@@ -16,7 +16,7 @@ parameters:
       type: string
 
 jobs:
-    ${{ if eq(parameters.solutionType, "dotnet") }}:
+  ${{ if eq(parameters.solutionType, "dotnet") }}:
     - job: Build_DotNet_Package_Job
       displayName: Build .Net Package
       ${{ if eq(parameters.agentPool, 'null')}}:
@@ -35,7 +35,7 @@ jobs:
           projectNames: ${{ parameters.projectNames }}
           buildConfiguration: ${{ parameters.buildConfiguration }}
 
-    ${{ if eq(parameters.solutionType, "nodejs") }}:
+  ${{ if eq(parameters.solutionType, "nodejs") }}:
     - job: Build_NodeJs_Package_Job
       displayName: Build Node.JS Package
       ${{ if eq(parameters.agentPool, 'null')}}:
