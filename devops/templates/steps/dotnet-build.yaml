@@ -4,7 +4,7 @@ parameters:
     - name: solutionDirectory
       type: object
     - name: projectNames
-      type: string
+      type: object
     - name: buildConfiguration
       type: string
 
