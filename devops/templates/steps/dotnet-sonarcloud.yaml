@@ -5,7 +5,7 @@ parameters:
       type: string
     - name: orginisation
       type: string
-    - name: project
+    - name: projectKey
       type: string
     - name: host
       type: string
@@ -24,17 +24,18 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-        echo "${SONAR_ORG} ${SONAR_PROJECT} ${SONAR_HOST} ${SOLUTION_DIRECTORY} ${SONAR_TOKEN}"
+        echo "${SONAR_ORG} ${SONAR_PROJECT_KEY} ${SONAR_HOST} ${SOLUTION_DIRECTORY} ${SONAR_TOKEN}"
         dotnet sonarscanner begin \
-            /o:$SONAR_ORG \
-            /k:$SONAR_PROJECT \
-            /d:sonar.host.url=$SONAR_HOST
+            /o:"$SONAR_ORG" \
+            /k:"$SONAR_PROJECT_KEY" \
+            /d:sonar.host.url="$SONAR_HOST"
+            /d:sonar.login="${SONAR_TOKEN}"
         dotnet build $SOLUTION_DIRECTORY --configuration $BUILD_CONFIGURATION
         dotnet sonarscanner end
   env:
     BUILD_CONFIGURATION: ${{ parameters.buildConfiguration }}
     SONAR_ORG: ${{ parameters.orginisation }}
-    SONAR_PROJECT: ${{ parameters.project }}
+    SONAR_PROJECT_KEY: ${{ parameters.projectKey }}
     SONAR_HOST: ${{ parameters.host }}
     SOLUTION_DIRECTORY:  $(System.DefaultWorkingDirectory)/${{ parameters.solutionDirectory }}
     SONAR_TOKEN: ${SONAR_TOKEN}
