@@ -12,29 +12,32 @@ parameters:
 
 steps:
 
-- task: CmdLine@2
+- task: Bash@3
+  displayname: Install SonarCloud Agent
   inputs:
+    targetType: inline
     script: |
         dotnet tool install --global dotnet-sonarscanner
-    displayname: Install SonarCloud Agent
     env:
 
-- task: CmdLine@2
+- task: Bash@3
+  displayname: Run SonarCloud Scan
   inputs:
+    targetType: 'inline'
     script: |
         dotnet sonarscanner begin \
-            /o:%SONARORG% \
-            /k:%SONARPROJECT% \
-            /d:sonar.host.url=%SONARHOST%
-        dotnet build %SOLUTIONDIRECTORY% --configuration %BUILDCONFIGURATION%
+            /o:$SONAR_ORG \
+            /k:$SONAR_PROJECT \
+            /d:sonar.host.url=$SONAR_HOST
+        dotnet build %SOLUTIONDIRECTORY% --configuration $BUILD_CONFIGURATION
         dotnet sonarscanner end
-    displayname: Run SonarCloud Scan
+    
     env:
-      buildConfiguration: ${{ parameters.buildConfiguration }}
-      sonarOrg: ${{ parameters.orginisation }}
-      sonarProject: ${{ parameters.project }}
-      sonarHost: ${{ parameters.host }}
-      solutionDirectory:  ${{ parameters.solutionDirectory }}
+      BUILD_CONFIGURATION: ${{ parameters.buildConfiguration }}
+      SONAR_ORG: ${{ parameters.orginisation }}
+      SONAR_PROJECT: ${{ parameters.project }}
+      SONAR_HOST: ${{ parameters.host }}
+      SOLUTION_DIRECTORY:  ${{ parameters.solutionDirectory }}
       SONAR_TOKEN: ${SONAR_TOKEN}
 
 
