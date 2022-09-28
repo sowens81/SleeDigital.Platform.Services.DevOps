@@ -11,6 +11,9 @@ pr:
     include:
     - Main
 
+variables:
+- group: global-secrets
+
 extends:
   template: ../types/cicd-libraries.yaml
   parameters:
@@ -21,3 +24,7 @@ extends:
       solutionDirectory: src/sharedlibraries/nuget/Example.Solution 
       developmentFrameworkVersion: 6.0.x #
       buildConfiguration: Release
+      sonarcloud:
+        orginisation: sowens81
+        project: sowens81_SleeDigital.Platform.Services.DevOps
+        host: https://sonarcloud.io

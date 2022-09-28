@@ -1,0 +1,44 @@
+parameters:
+    - name: solutionDirectory
+      type: string
+    - name: orginisation
+      type: string
+    - name: project
+      type: string
+    - name: host
+      type: string
+
+steps:
+
+- task: CmdLine@2
+  inputs:
+    script: |
+        dotnet tool install --global dotnet-sonarscanner
+    displayname: Install SonarCloud Agent
+    env:
+
+- task: CmdLine@2
+  inputs:
+    script: |
+        dotnet sonarscanner begin \
+            /o:%SONARORG% \
+            /k:%SONARPROJECT% \
+            /d:sonar.host.url=%SONARHOST%
+        dotnet build %SOLUTIONDIRECTORY% --configuration Release
+        dotnet sonarscanner end
+    displayname: Run SonarCloud Scan
+    env:
+        buildConfiguration: ${{ parameters. }}
+        sonarOrg: ${{ parameters.orginisation }}
+        sonarProject: ${{ parameters.project }}
+        sonarHost: ${{ parameters.host }}
+        solutionDirectory:  ${{ parameters.solutionDirectory }}
+        SONAR_TOKEN: ${SONAR_TOKEN}
+
+
+
+
+
+
+
+

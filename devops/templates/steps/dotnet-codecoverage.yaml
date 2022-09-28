@@ -1,10 +1,6 @@
 parameters:
-    - name: solutionName
-      type: string
     - name: solutionDirectory
       type: object
-    - name: buildConfiguration
-      type: string
 
 steps:
   

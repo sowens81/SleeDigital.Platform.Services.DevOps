@@ -15,6 +15,7 @@ stages:
         solutionDirectory: ${{ parameters.settings.solutionDirectory }}
         developmentFrameworkVersion: ${{ parameters.settings.developmentFrameworkVersion }}
         buildConfiguration: ${{ parameters.settings.buildConfiguration }}
+        sonarcloud: ${{ parameters.settings.sonarcloud }}
   
   - ${{ if eq(parameters['solutionType'], 'nodejs' ) }}:
     - template: ../stages/build-nodejs-packages.yaml

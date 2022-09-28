@@ -9,6 +9,8 @@ parameters:
       type: string
     - name: buildConfiguration
       type: string
+    - name: sonarcloud
+      type: object
 
 stages:
   - stage: build
@@ -33,9 +35,16 @@ stages:
         - ${{ if and(eq(variables['Build.SourceBranchName'], 'Main'), variables['Build.Reason'], 'IndividualCI') }}:
           - template: ../steps/dotnet-codecoverage.yaml
             parameters: 
-              solutionName: ${{ parameters.solutionName }}
               solutionDirectory: ${{ parameters.solutionDirectory }}
-              buildConfiguration: ${{ parameters.buildConfiguration }}
+        
+        - ${{ if and(eq(variables['Build.SourceBranchName'], 'Main'), variables['Build.Reason'], 'IndividualCI') }}:
+          - template: ../steps/dotnet-sonarcloud.yaml
+            parameters: 
+              solutionDirectory: ${{ parameters.solutionDirectory }}
+              orginisation: ${{ parameters.sonar.orginisation }}
+              project: ${{ parameters.sonarcloud.project }}
+              host: ${{ parameters.sonarcloud.host }}
+              
 
 
               
