@@ -29,5 +29,5 @@ steps:
   displayName: UnitTest .Net Project
   inputs:
     command: 'test'
-    projects: "${{ parameters.solutionDirectory }}/${{ parameters.solutionName }}/${{ parameters.solutionName }}.Tests.csproj"
+    projects: "${{ parameters.solutionDirectory }}/**/*.Tests.csproj"
     testRunTitle: 'Unit Tests'
