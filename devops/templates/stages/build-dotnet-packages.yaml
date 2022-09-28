@@ -41,7 +41,7 @@ stages:
           - template: ../steps/dotnet-sonarcloud.yaml
             parameters: 
               solutionDirectory: ${{ parameters.solutionDirectory }}
-              orginisation: ${{ parameters.sonar.orginisation }}
+              orginisation: ${{ parameters.sonarcloud.orginisation }}
               project: ${{ parameters.sonarcloud.project }}
               host: ${{ parameters.sonarcloud.host }}
               
