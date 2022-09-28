@@ -15,8 +15,9 @@ parameters:
     - name: agentPool
       type: string
 
-${{ if eq(parameters.solutionType, "dotnet") }}:
-  jobs:
+
+jobs:
+  ${{ if eq(parameters.solutionType, 'dotnet')}}:
     - job: Build_DotNet_Package_Job
       displayName: Build .Net Package
       ${{ if eq(parameters.agentPool, 'null')}}:
@@ -35,9 +36,8 @@ ${{ if eq(parameters.solutionType, "dotnet") }}:
           projectNames: ${{ parameters.projectNames }}
           buildConfiguration: ${{ parameters.buildConfiguration }}
 
-${{ if eq(parameters.solutionType, "nodejs") }}:
-  jobs:
-    - job: Build_NodeJs_Package_Job
+  ${{ if eq(parameters.solutionType, 'nodejs')}}:
+    - job: Build_NodeJS_Package_Job
       displayName: Build Node.JS Package
       ${{ if eq(parameters.agentPool, 'null')}}:
         pool:
@@ -52,6 +52,5 @@ ${{ if eq(parameters.solutionType, "nodejs") }}:
         parameters: 
           solutionName: ${{ parameters.solutionName }}
           solutionDirectory: ${{ parameters.solutionDirectory }}
+          projectNames: ${{ parameters.projectNames }}
           buildConfiguration: ${{ parameters.buildConfiguration }}
-          
-
