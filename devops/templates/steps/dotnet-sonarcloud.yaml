@@ -24,12 +24,8 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-        dotnet sonarscanner begin \
-            /o:$SONAR_ORG \
-            /k:$SONAR_PROJECT \
-            /d:sonar.host.url=$SONAR_HOST
-        dotnet build $SOLUTION_DIRECTORY --configuration $BUILD_CONFIGURATION
-        dotnet sonarscanner end
+        echo "${SONAR_ORG} ${SONAR_PROJECT} ${SONAR_HOST} ${SOLUTION_DIRECTORY} ${SONAR_TOKEN}"
+
   env:
     BUILD_CONFIGURATION: ${{ parameters.buildConfiguration }}
     SONAR_ORG: ${{ parameters.orginisation }}
