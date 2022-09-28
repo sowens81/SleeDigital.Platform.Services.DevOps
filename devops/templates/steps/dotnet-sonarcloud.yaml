@@ -24,9 +24,9 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-        dotnet sonarscanner begin /k:"${SONAR_PROJECT_KEY}" /o:"${SONAR_ORG}" /d:sonar.login="${SONAR_TOKEN}" /d:sonar.host.url="${SONAR_HOST}"
-        dotnet build --configuration "${BUILD_CONFIGURATION}"
-        dotnet sonarscanner end /d:sonar.login="${SONAR_TOKEN}"
+        dotnet sonarscanner begin /k:"$SONAR_PROJECT_KEY" /o:"$SONAR_ORG" /d:sonar.login="$SONAR_TOKEN" /d:sonar.host.url="$SONAR_HOST"
+        dotnet build --configuration "$BUILD_CONFIGURATION"
+        dotnet sonarscanner end /d:sonar.login="$SONAR_TOKEN"
     workingDirectory: "$(System.DefaultWorkingDirectory)/${{ parameters.solutionDirectory }}"
   env:
     BUILD_CONFIGURATION: ${{ parameters.buildConfiguration }}
