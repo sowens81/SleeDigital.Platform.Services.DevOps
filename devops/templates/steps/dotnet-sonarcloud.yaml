@@ -1,6 +1,8 @@
 parameters:
     - name: solutionDirectory
       type: string
+    - name: buildConfiguration
+      type: string
     - name: orginisation
       type: string
     - name: project
@@ -24,11 +26,11 @@ steps:
             /o:%SONARORG% \
             /k:%SONARPROJECT% \
             /d:sonar.host.url=%SONARHOST%
-        dotnet build %SOLUTIONDIRECTORY% --configuration Release
+        dotnet build %SOLUTIONDIRECTORY% --configuration %BUILDCONFIGURATION%
         dotnet sonarscanner end
     displayname: Run SonarCloud Scan
     env:
-        buildConfiguration: ${{ parameters. }}
+        buildConfiguration: ${{ parameters.buildConfiguration }}
         sonarOrg: ${{ parameters.orginisation }}
         sonarProject: ${{ parameters.project }}
         sonarHost: ${{ parameters.host }}

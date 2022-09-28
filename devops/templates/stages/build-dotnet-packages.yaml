@@ -44,6 +44,7 @@ stages:
               orginisation: ${{ parameters.sonarcloud.orginisation }}
               project: ${{ parameters.sonarcloud.project }}
               host: ${{ parameters.sonarcloud.host }}
+              buildConfiguration: ${{ parameters.buildConfiguration }}
               
 
 
