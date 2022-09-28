@@ -79,3 +79,7 @@ coveragereport/
 .vs/
 appsettings.Development.json
 appsettings.json
+
+
+# Security Scans
+.sonarqube
