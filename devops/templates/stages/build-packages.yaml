@@ -17,40 +17,40 @@ parameters:
 
 
 jobs:
-  ${{ if eq(parameters.solutionType, 'dotnet')}}:
-    - job: Build_DotNet_Package_Job
-      displayName: Build .Net Package
-      ${{ if eq(parameters.agentPool, 'null')}}:
-        pool:
-          vmImage: ${{ parameters.agentPool }}
-      steps:
+  - job: Build_DotNet_Package_Job
+    displayName: Build .Net Package
+    condition: eq(parameter['solutionType'], 'dotnet')
+    ${{ if eq(parameters.agentPool, 'null')}}:
+      pool:
+        vmImage: ${{ parameters.agentPool }}
+    steps:
 
-      - template: ../steps/dotnet-framework.yaml
-        parameters: 
-          developmentFrameworkVersion: ${{ parameters.developmentFrameworkVersion }}
-      
-      - template: ../steps/dotnet-build.yaml
-        parameters: 
-          solutionName: ${{ parameters.solutionName }}
-          solutionDirectory: ${{ parameters.solutionDirectory }}
-          projectNames: ${{ parameters.projectNames }}
-          buildConfiguration: ${{ parameters.buildConfiguration }}
+    - template: ../steps/dotnet-framework.yaml
+      parameters: 
+        developmentFrameworkVersion: ${{ parameters.developmentFrameworkVersion }}
+    
+    - template: ../steps/dotnet-build.yaml
+      parameters: 
+        solutionName: ${{ parameters.solutionName }}
+        solutionDirectory: ${{ parameters.solutionDirectory }}
+        projectNames: ${{ parameters.projectNames }}
+        buildConfiguration: ${{ parameters.buildConfiguration }}
 
-  ${{ if eq(parameters.solutionType, 'nodejs')}}:
-    - job: Build_NodeJS_Package_Job
-      displayName: Build Node.JS Package
-      ${{ if eq(parameters.agentPool, 'null')}}:
-        pool:
-          vmImage: ${{ parameters.agentPool }}
-      steps:
+  - job: Build_NodeJS_Package_Job
+    displayName: Build Node.JS Package
+    condition: eq(parameter['solutionType'], 'nodejs')
+    ${{ if eq(parameters.agentPool, 'null')}}:
+      pool:
+        vmImage: ${{ parameters.agentPool }}
+    steps:
 
-      - template: ../steps/dotnet-framework.yaml
-        parameters: 
-          developmentFrameworkVersion: ${{ parameters.developmentFrameworkVersion }}
-      
-      - template: ../steps/dotnet-build.yaml
-        parameters: 
-          solutionName: ${{ parameters.solutionName }}
-          solutionDirectory: ${{ parameters.solutionDirectory }}
-          projectNames: ${{ parameters.projectNames }}
-          buildConfiguration: ${{ parameters.buildConfiguration }}
+    - template: ../steps/dotnet-framework.yaml
+      parameters: 
+        developmentFrameworkVersion: ${{ parameters.developmentFrameworkVersion }}
+    
+    - template: ../steps/dotnet-build.yaml
+      parameters: 
+        solutionName: ${{ parameters.solutionName }}
+        solutionDirectory: ${{ parameters.solutionDirectory }}
+        projectNames: ${{ parameters.projectNames }}
+        buildConfiguration: ${{ parameters.buildConfiguration }}
