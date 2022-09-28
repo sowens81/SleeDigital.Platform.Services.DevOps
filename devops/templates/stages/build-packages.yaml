@@ -33,7 +33,6 @@ jobs:
       parameters: 
         solutionName: ${{ parameters.solutionName }}
         solutionDirectory: ${{ parameters.solutionDirectory }}
-        projectNames: ${{ parameters.projectNames }}
         buildConfiguration: ${{ parameters.buildConfiguration }}
 
   - job: Build_NodeJS_Package_Job
@@ -52,5 +51,4 @@ jobs:
       parameters: 
         solutionName: ${{ parameters.solutionName }}
         solutionDirectory: ${{ parameters.solutionDirectory }}
-        projectNames: ${{ parameters.projectNames }}
         buildConfiguration: ${{ parameters.buildConfiguration }}
