@@ -34,7 +34,7 @@ jobs:
         parameters: 
           solutionName: ${{ parameters.solutionName }}
           solutionDirectory: ${{ parameters.solutionDirectory }}
-          # projectNames: ${{ parameters.projectNames }}
+          projectNames: ${{ parameters.projectNames }}
           buildConfiguration: ${{ parameters.buildConfiguration }}
 
     # ${{ if eq(parameters.solutionType, "nodejs") }}

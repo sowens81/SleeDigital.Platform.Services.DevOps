@@ -3,8 +3,8 @@ parameters:
       type: string
     - name: solutionDirectory
       type: string
-    #- name: projectNames
-    #  type: object
+    - name: projectNames
+      type: object
     - name: buildConfiguration
       type: string
 
@@ -25,10 +25,10 @@ steps:
     projects: "${{ parameters.solutionDirectory }}/**/*.csproj"
     arguments: "--configuration ${{ parameters.buildConfiguration }}"
   
-#- ${{ each projectName in parameters.projectNames.names }}:
+#- ${{ each name in parameters.projectNames }}:
 #  - task: DotNetCoreCLI@2
-#    displayName: UnitTest .Net Project - ${{ projectName }}
+#    displayName: UnitTest .Net Project - ${{ name }}
 #    inputs:
 #      command: 'test'
-#      projects: "${{ parameters.solutionDirectory }}/${{ projectName }}.UnitTests/${{ projectName }}.UnitTests.csproj"
+#      projects: "${{ parameters.solutionDirectory }}/${{ name }}.UnitTests/${{ name }}.UnitTests.csproj"
 #      testRunTitle: 'Unit Tests'
