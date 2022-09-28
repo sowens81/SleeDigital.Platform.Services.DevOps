@@ -14,9 +14,9 @@ pr:
 extends:
   template: ../types/cicd-libraries.yaml
   parameters:
+    solutionType:  dotnet #
+    agentPool: 'ubuntu-latest'
     settings:
-      agentPool: 'ubuntu-latest'
-      solutionType:  dotnet #
       solutionName:  Example.Solution #
       solutionDirectory: src/sharedlibraries/nuget/Example.Solution 
       developmentFrameworkVersion: 6.0.x #

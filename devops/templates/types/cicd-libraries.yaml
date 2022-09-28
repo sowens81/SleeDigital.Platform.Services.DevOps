@@ -1,15 +1,26 @@
 parameters:
+    - name: solutionType
+      type: string
+    - name: agentPool
+      type: string
     - name: settings
       type: object
 
 stages:
-    - stage: build
-      jobs:
-      - template: ../stages/build-packages.yaml
-        parameters:
-          agentPool: ${{ parameters.settings.agentPool }}
-          solutionType: ${{ parameters.settings.solutionType }}
-          solutionName: ${{ parameters.settings.solutionName }}
-          solutionDirectory: ${{ parameters.settings.solutionDirectory }}
-          developmentFrameworkVersion: ${{ parameters.settings.developmentFrameworkVersion }}
-          buildConfiguration: ${{ parameters.settings.buildConfiguration }}
+  - ${{ if eq(parameters['solutionType'], 'dotnet' ) }}:
+    - template: ../stages/build-dotnet-packages.yaml
+      parameters:
+        agentPool: ${{ parameters.agentPool }}
+        solutionName: ${{ parameters.settings.solutionName }}
+        solutionDirectory: ${{ parameters.settings.solutionDirectory }}
+        developmentFrameworkVersion: ${{ parameters.settings.developmentFrameworkVersion }}
+        buildConfiguration: ${{ parameters.settings.buildConfiguration }}
+  
+  - ${{ if eq(parameters['solutionType'], 'nodejs' ) }}:
+    - template: ../stages/build-nodejs-packages.yaml
+      parameters:
+        agentPool: ${{ parameters.agentPool }}
+        solutionName: ${{ parameters.settings.solutionName }}
+        solutionDirectory: ${{ parameters.settings.solutionDirectory }}
+        developmentFrameworkVersion: ${{ parameters.settings.developmentFrameworkVersion }}
+        buildConfiguration: ${{ parameters.settings.buildConfiguration }}

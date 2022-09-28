@@ -1,0 +1,30 @@
+parameters:
+    - name: agentPool
+      type: string
+    - name: solutionName
+      type: string
+    - name: solutionDirectory
+      type: string
+    - name: developmentFrameworkVersion
+      type: string
+    - name: buildConfiguration
+      type: string
+
+stages:
+  - stage: build
+    jobs:
+      - job: Build_NodeJS_Package_Job
+        displayName: Build Node.JS Package
+        ${{ if ne(parameters.agentPool, 'null')}}:
+          pool:
+            vmImage: ${{ parameters.agentPool }}
+        steps:
+        - template: ../steps/dotnet-framework.yaml
+          parameters: 
+            developmentFrameworkVersion: ${{ parameters.developmentFrameworkVersion }}
+        
+        - template: ../steps/dotnet-build.yaml
+          parameters: 
+            solutionName: ${{ parameters.solutionName }}
+            solutionDirectory: ${{ parameters.solutionDirectory }}
+            buildConfiguration: ${{ parameters.buildConfiguration }}
