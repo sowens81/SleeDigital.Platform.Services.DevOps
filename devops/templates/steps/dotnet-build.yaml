@@ -25,7 +25,7 @@ steps:
     projects: "${{ parameters.solutionDirectory }}/**/*.csproj"
     arguments: "--configuration ${{ parameters.buildConfiguration }}"
 
-- ${{ each projectName in parameters.projectNames }}:
+- ${{ each projectName in parameters.projectNames.names }}:
   - task: DotNetCoreCLI@2
     displayName: UnitTest .Net Project - ${{ projectName }}
     inputs:
