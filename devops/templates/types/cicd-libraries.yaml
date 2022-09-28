@@ -11,5 +11,6 @@ stages:
           solutionType: ${{ parameters.settings.solutionType }}
           solutionName: ${{ parameters.settings.solutionName }}
           solutionDirectory: ${{ parameters.settings.solutionDirectory }}
+          projectNames: ${{ parameters.settings.projectNames }}
           developmentFrameworkVersion: ${{ parameters.settings.developmentFrameworkVersion }}
           buildConfiguration: ${{ parameters.settings.buildConfiguration }}

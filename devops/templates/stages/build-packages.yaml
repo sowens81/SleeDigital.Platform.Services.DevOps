@@ -1,10 +1,15 @@
 parameters:
     - name: solutionType
       type: string
+      values: 
+      - dotnet
+      - nodejs
     - name: solutionName
       type: string
     - name: solutionDirectory
       type: string
+    - name: projectNames
+      type: object
     - name: developmentFrameworkVersion
       type: string
     - name: buildConfiguration
@@ -12,11 +17,29 @@ parameters:
     - name: agentPool
       type: string
 
-
 jobs:
     # ${{ if eq(parameters.solutionType, "dotnet") }}
     - job: Build_DotNet_Package_Job
       displayName: Build .Net Package
+      ${{ if eq(parameters.agentPool, 'null')}}:
+        pool:
+          vmImage: ${{ parameters.agentPool }}
+      steps:
+
+      - template: ../steps/dotnet-framework.yaml
+        parameters: 
+          developmentFrameworkVersion: ${{ parameters.developmentFrameworkVersion }}
+      
+      - template: ../steps/dotnet-build.yaml
+        parameters: 
+          solutionName: ${{ parameters.solutionName }}
+          solutionDirectory: ${{ parameters.solutionDirectory }}
+          projectNames: ${{ parameters.projectNames }}
+          buildConfiguration: ${{ parameters.buildConfiguration }}
+
+    # ${{ if eq(parameters.solutionType, "nodejs") }}
+    - job: Build_NodeJs_Package_Job
+      displayName: Build Node.JS Package
       ${{ if eq(parameters.agentPool, 'null')}}:
         pool:
           vmImage: ${{ parameters.agentPool }}
