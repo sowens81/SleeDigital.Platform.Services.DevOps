@@ -1,5 +1,5 @@
 ﻿using System;
-namespace Example.Solution2.Models
+namespace Example.Solutiuon2.Models
 {
     public class Product
     {

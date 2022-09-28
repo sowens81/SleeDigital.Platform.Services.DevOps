@@ -29,6 +29,6 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Example.Solution2\Example.Solution2\Example.Solution2.csproj" />
+    <ProjectReference Include="..\Example.Solutiuon2\Example.Solutiuon2.csproj" />
   </ItemGroup>
 </Project>

@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example.Solution.UnitTests"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example.Solution2.UnitTests", "Example.Solution2.UnitTests\Example.Solution2.UnitTests.csproj", "{6EEDBB95-F5E5-4968-94A6-D0363E9C92DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example.Solution2", "Example.Solution2\Example.Solution2\Example.Solution2.csproj", "{B4204424-8D6A-4439-BFC8-91B6FD02D51E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example.Solutiuon2", "Example.Solutiuon2\Example.Solutiuon2.csproj", "{D2B0F21D-06DD-4294-86EA-2332E08FC8FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -40,9 +40,9 @@ Global
 		{6EEDBB95-F5E5-4968-94A6-D0363E9C92DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6EEDBB95-F5E5-4968-94A6-D0363E9C92DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6EEDBB95-F5E5-4968-94A6-D0363E9C92DA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B4204424-8D6A-4439-BFC8-91B6FD02D51E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B4204424-8D6A-4439-BFC8-91B6FD02D51E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B4204424-8D6A-4439-BFC8-91B6FD02D51E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B4204424-8D6A-4439-BFC8-91B6FD02D51E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2B0F21D-06DD-4294-86EA-2332E08FC8FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2B0F21D-06DD-4294-86EA-2332E08FC8FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2B0F21D-06DD-4294-86EA-2332E08FC8FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2B0F21D-06DD-4294-86EA-2332E08FC8FF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

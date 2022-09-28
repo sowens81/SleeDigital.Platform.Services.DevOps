@@ -1,5 +1,5 @@
 ﻿using System;
-using Example.Solution2.Models;
+using Example.Solutiuon2.Models;
 
 namespace Example.Solution2.UnitTests.Models
 {
