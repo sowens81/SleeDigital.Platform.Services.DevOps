@@ -7,26 +7,12 @@ parameters:
       type: string
 
 steps:
-
-- task: DotNetCoreCLI@2
-  displayName: Restore .Net Project
-  inputs:
-    command: 'restore'
-    projects: "${{ parameters.solutionDirectory }}/**/*.csproj"
-    feedsToUse: 'select'
-    includeNuGetOrg: true
-    
-- task: DotNetCoreCLI@2
-  displayName: Build .Net Project
-  inputs:
-    command: 'build'
-    projects: "${{ parameters.solutionDirectory }}/**/*.csproj"
-    arguments: "--configuration ${{ parameters.buildConfiguration }}"
   
-
 - task: DotNetCoreCLI@2
-  displayName: UnitTest .Net Project
+  displayName: Publish Code Coverage
   inputs:
     command: 'test'
     projects: "${{ parameters.solutionDirectory }}/**/*.UnitTests.csproj"
     testRunTitle: 'Unit Tests'
+    arguments: '--collect "Code coverage'
+    publishTestResults: true
