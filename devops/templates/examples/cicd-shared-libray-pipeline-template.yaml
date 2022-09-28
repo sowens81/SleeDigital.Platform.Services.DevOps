@@ -20,7 +20,7 @@ extends:
       solutionName:  Example.Solution #
       solutionDirectory: src/sharedlibraries/nuget/Example.Solution #
       projectNames:
-        - Example.Solution
-        - Example.Solution2
+      - Example.Solution
+      - Example.Solution2
       developmentFrameworkVersion: 6.0.x #
       buildConfiguration: Release
