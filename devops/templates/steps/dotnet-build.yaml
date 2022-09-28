@@ -16,8 +16,6 @@ steps:
     feedsToUse: 'select'
     includeNuGetOrg: true
     
-
-
 - task: DotNetCoreCLI@2
   displayName: Build .Net Project
   inputs:
@@ -29,5 +27,5 @@ steps:
   displayName: UnitTest .Net Project
   inputs:
     command: 'test'
-    projects: "${{ parameters.solutionDirectory }}/**/*.Tests.csproj"
+    projects: "${{ parameters.solutionDirectory }}/**/*.UnitTests.csproj"
     testRunTitle: 'Unit Tests'

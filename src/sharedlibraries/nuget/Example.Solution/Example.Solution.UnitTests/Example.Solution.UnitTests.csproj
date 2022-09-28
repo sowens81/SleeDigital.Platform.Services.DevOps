@@ -28,6 +28,6 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Example.Solution\Example.Solution\Example.Solution.csproj" />
+    <ProjectReference Include="..\Example.Solution\Example.Solution.csproj" />
   </ItemGroup>
 </Project>

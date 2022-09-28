@@ -1,7 +1,7 @@
 ﻿using System;
 using Example.Solution.Models;
 
-namespace Example.Solution.Tests.Models
+namespace Example.Solution.UnitTests.Models
 {
     public class ProductTests
     {
