@@ -30,12 +30,12 @@ steps:
         dotnet sonarscanner end
     displayname: Run SonarCloud Scan
     env:
-        buildConfiguration: ${{ parameters.buildConfiguration }}
-        sonarOrg: ${{ parameters.orginisation }}
-        sonarProject: ${{ parameters.project }}
-        sonarHost: ${{ parameters.host }}
-        solutionDirectory:  ${{ parameters.solutionDirectory }}
-        SONAR_TOKEN: ${SONAR_TOKEN}
+      buildConfiguration: ${{ parameters.buildConfiguration }}
+      sonarOrg: ${{ parameters.orginisation }}
+      sonarProject: ${{ parameters.project }}
+      sonarHost: ${{ parameters.host }}
+      solutionDirectory:  ${{ parameters.solutionDirectory }}
+      SONAR_TOKEN: ${SONAR_TOKEN}
 
 
 
