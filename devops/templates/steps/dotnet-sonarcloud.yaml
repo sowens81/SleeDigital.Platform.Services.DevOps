@@ -31,7 +31,6 @@ steps:
             /d:sonar.host.url=$SONAR_HOST
         dotnet build %SOLUTIONDIRECTORY% --configuration $BUILD_CONFIGURATION
         dotnet sonarscanner end
-    
     env:
       BUILD_CONFIGURATION: ${{ parameters.buildConfiguration }}
       SONAR_ORG: ${{ parameters.orginisation }}
