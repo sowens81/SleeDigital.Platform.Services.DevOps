@@ -1,0 +1,32 @@
+parameters:
+    - name: solutionName
+      type: string
+    - name: solutionDirectory
+      type: object
+    - name: buildConfiguration
+      type: string
+
+steps:
+
+- task: DotNetCoreCLI@2
+  displayName: Restore .Net Project
+  inputs:
+    command: 'restore'
+    projects: "${{ parameters.solutionDirectory }}/**/*.csproj"
+    feedsToUse: 'select'
+    includeNuGetOrg: true
+    
+- task: DotNetCoreCLI@2
+  displayName: Build .Net Project
+  inputs:
+    command: 'build'
+    projects: "${{ parameters.solutionDirectory }}/**/*.csproj"
+    arguments: "--configuration ${{ parameters.buildConfiguration }}"
+  
+
+- task: DotNetCoreCLI@2
+  displayName: UnitTest .Net Project
+  inputs:
+    command: 'test'
+    projects: "${{ parameters.solutionDirectory }}/**/*.UnitTests.csproj"
+    testRunTitle: 'Unit Tests'

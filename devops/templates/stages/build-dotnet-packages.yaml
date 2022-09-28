@@ -29,3 +29,13 @@ stages:
             solutionName: ${{ parameters.solutionName }}
             solutionDirectory: ${{ parameters.solutionDirectory }}
             buildConfiguration: ${{ parameters.buildConfiguration }}
+        
+        - ${{ if and(eq(variables['Build.SourceBranchName'], 'Main'), variables['Build.Reason'], 'IndividualCI') }}:
+          - template: ../steps/dotnet-codecoverage.yaml
+            parameters: 
+              solutionName: ${{ parameters.solutionName }}
+              solutionDirectory: ${{ parameters.solutionDirectory }}
+              buildConfiguration: ${{ parameters.buildConfiguration }}
+
+
+              
